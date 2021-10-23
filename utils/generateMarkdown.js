@@ -1,15 +1,3 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
 function renderTableOfContents(data) {
   var nav = data.tableOfContents;
 
@@ -51,8 +39,11 @@ const generateMarkdown = data => {
   ## Installation:
     ${data.installation}
 
-  ## Contributors:
+  ## Contributor(s):
     ${data.contributors}
+
+  ## Questions? Contact me!:
+  https://github.com/${data.github}
 
   ## License:
     ${data.license}
@@ -61,3 +52,30 @@ const generateMarkdown = data => {
 }
 
 module.exports = generateMarkdown;
+
+
+
+// TODO: Create a function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+function renderLicenseBadge(license) {
+  // if (license) {
+  //   return `
+  //   https://img.shields.io/badge/${license}-License-green
+  //   `
+  //}
+  }
+  //renderLicenseBadge('MIT')
+  
+  // TODO: Create a function that returns the license link
+  // If there is no license, return an empty string
+  function renderLicenseLink(license) {
+    // return `
+    // [![MIT License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/MIT)
+    // `
+    //${license}
+    //https://img.shields.io/badge/License-GPL%20v3-yellow.svg
+  }
+  
+  // TODO: Create a function that returns the license section of README
+  // If there is no license, return an empty string
+  function renderLicenseSection(license) {}
