@@ -2,16 +2,18 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown')
-// TODO: Create an array of questions for user input
-// const questions = [
 
+
+// An array of questions for user input
 const questions = [{
-
-
-    
         type: 'input',
         name: 'name',
         message: 'What is title of your projects README file?'
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter your GitHub username for the questions section.'
     },
     {
         type: 'confirm',
@@ -19,11 +21,6 @@ const questions = [{
         message: 'Would you like to add a table of contents?',
         default: false
     },
-    // {
-    //     type: 'input',
-    //     name: 'nav',
-    //     when: ({ tableOfContents }) => tableOfContents
-    // },
     {
         type: 'input',
         name: 'description',
@@ -32,7 +29,7 @@ const questions = [{
     {
         type: 'input',
         name: 'link',
-        message: 'Enter your URL to the live project'
+        message: 'Enter your URL to the live project.'
     },
     {
         type: 'input',
@@ -42,44 +39,48 @@ const questions = [{
     {
         type: 'checkbox',
         name: 'technologies',
-        message: 'Technologies Used',
+        message: 'Built With',
         choices: ['JavaScript', 'HTML', 'CSS', 'jQuery', 'Bootstrap', 'Node', 'ES6']
     },
     {
-        type: 'confirm',
+        type: 'input',
         name: 'usage',
-        message: 'Usage',
-        default: 'Would you like to include a usage description?'
+        message: 'Enter a usage description.'
     },
     {
-        type: 'confirm',
+        type: 'input',
         name: 'installation',
-        message: 'Would you like to include installation instructions?',
-        default: false
+        message: 'Enter installation instructions.'
     },
     {
         type: 'input',
         name: 'contributors',
-        message: 'Contributors '
+        message: 'Enter names of project contributors.'
     },
     {
-        type: 'input',
+        type: 'checkbox',
         name: 'license',
-        message: 'License'
+        message: 'Would you like to include any of the following license?',
+        choices: [
+            //[![](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)]()
+            {
+                name: 'MIT',
+                value: `[![MIT](https://img.shields.io/badge/MIT-License-green.svg)](https://opensource.org/licenses/MIT)`
+            },
+            
+            {
+                name: 'Apache',
+                value: `[![Apache-2.0](https://img.shields.io/badge/Apache-License-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+            },
+
+            {
+                name: 'Eclipse',
+                value: `[![Eclipse-2.0](https://img.shields.io/badge/Eclipse-License-black.svg)](https://opensource.org/licenses/EPL-2.0)`
+            }
+        ]
     }
 
 ]
-
-// {
-//     type: '',
-//     name: '',
-//     message: ''
-// }
-
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
@@ -93,7 +94,7 @@ function init() {
                 console.log("Success!");
             })
         })
-}
+};
 
 // Function call to initialize app
 init();
